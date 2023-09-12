@@ -29,7 +29,7 @@ class GhDemoApplicationTests {
         this.mockMvc.perform(MockMvcRequestBuilders.get("/users/someLogin"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNotEmpty())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.login").value("someLogin"));
     }
 
