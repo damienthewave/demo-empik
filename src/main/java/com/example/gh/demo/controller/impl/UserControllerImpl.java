@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @AllArgsConstructor
 @RestController
 public class UserControllerImpl implements UserController {
@@ -15,7 +17,9 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public ResponseEntity<User> getUser(String login) {
-        return null;
+        Optional<User> user = userService.getUser(login);
+        return user.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 }
