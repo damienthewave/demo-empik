@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * A unit testing class for UserControllerImpl.
  */
 @WebMvcTest(UserControllerImpl.class)
-public class UserControllerImplTest {
+public class UserControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
