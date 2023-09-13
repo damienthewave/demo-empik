@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class UserCalculationService {
 
     public User calculateUserStats(GithubApiUser githubApiUser) {
-        double calculations = 6.0 / githubApiUser.followers() * (2 + githubApiUser.public_repos());
+        double calculations = getCalculations(githubApiUser.followers(), githubApiUser.public_repos());
         return User.builder()
                 .id(githubApiUser.id())
                 .login(githubApiUser.login())
@@ -22,5 +22,9 @@ public class UserCalculationService {
                 .createdAt(githubApiUser.created_at())
                 .calculations(calculations)
                 .build();
+    }
+
+    private static double getCalculations(int followers, int publicRepos) {
+        return 6.0 / followers * (2 + publicRepos);
     }
 }
