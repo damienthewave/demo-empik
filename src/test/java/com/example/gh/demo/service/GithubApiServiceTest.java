@@ -15,6 +15,9 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+/**
+ * This class tests the behaviour of the GitHubApiService class.
+ */
 @SpringBootTest
 class GithubApiServiceTest {
 

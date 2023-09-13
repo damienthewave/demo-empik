@@ -8,6 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * This test class is responsible for integration testing of the RequestCountService along with the database access - RequestCountRepository.
+ */
 @SpringBootTest
 class RequestCountServiceTest {
 

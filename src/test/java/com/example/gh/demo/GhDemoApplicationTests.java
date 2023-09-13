@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 
 /**
- * This class contains integration tests.
+ * This class contains integration tests of the application's expected behaviour.
  */
 @SpringBootTest
 @AutoConfigureMockMvc

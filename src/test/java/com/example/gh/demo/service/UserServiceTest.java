@@ -13,6 +13,10 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+/**
+ * This class tests the implementation of the user service. A user from GitHub's API has to be converted into
+ * a User with calculations field present.
+ */
 @SpringBootTest
 class UserServiceTest {
 
