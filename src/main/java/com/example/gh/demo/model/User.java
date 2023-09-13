@@ -1,6 +1,7 @@
 package com.example.gh.demo.model;
 
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
  */
 @Getter
 @Builder
+@EqualsAndHashCode
 public class User {
 
     private Integer id;

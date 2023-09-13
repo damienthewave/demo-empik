@@ -21,16 +21,22 @@ class GhDemoApplicationTests {
     private MockMvc mockMvc;
 
     @Test
-    void contextLoads() {
-    }
-
-    @Test
-    void shouldReturnGhUser() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/users/someLogin"))
+    void shouldReturnGithubUser() throws Exception {
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/users/odersky"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.login").value("someLogin"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.login").value("odersky"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.calculations").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.createdAt").isNotEmpty())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.type").value("User"));
+    }
+
+    @Test
+    void shouldReturnNotFound() throws Exception {
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/users/someNonexistentLogin"))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
 }

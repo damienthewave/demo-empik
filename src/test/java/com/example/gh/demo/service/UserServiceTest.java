@@ -3,7 +3,6 @@ package com.example.gh.demo.service;
 import com.example.gh.demo.external.GithubApiUser;
 import com.example.gh.demo.model.User;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -26,7 +25,7 @@ class UserServiceTest {
     @Test
     void getUser() {
         GithubApiUser mockedUser = new GithubApiUser(
-                1, "someLogin", "someName", "someType", "someUrl", "2021-05-03T12:10:00", 6, 8);
+                1, "someLogin", "someName", "someType", "someUrl", LocalDateTime.parse("2021-05-03T12:10:00"), 6, 8);
 
         when(githubApiService.fetchGithubUser("someLogin")).thenReturn(Optional.of(mockedUser));
 
